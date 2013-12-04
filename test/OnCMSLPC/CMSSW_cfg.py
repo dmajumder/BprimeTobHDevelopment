@@ -2,7 +2,7 @@ import FWCore.ParameterSet.Config as cms
 
 from FWCore.ParameterSet.VarParsing import VarParsing
 
-from BpbH.BprimeTobHDevelopment.BpBpToBHBHinc.BprimeBprimeTobHbHinc_M_1000_cfi import * 
+from BprimebHAnalysisv1.BprimeTobHDevelopment.BpBpToBHBHinc.BprimeBprimeTobHbHinc_M_1000_cfi import * 
 
 options = VarParsing('python')
 
@@ -142,7 +142,6 @@ process.TFileService = cms.Service("TFileService",
     fileName = cms.string(options.outFilename) 
     )
 
-MuHLTPaths  = [1830, 1831, 2290, 2650, 2912, 3313, 3590, 4875, 5201, 5671, ] #HLT_Mu40
 HLTPaths  = [3225, 4136, 4137, 5089, 5537, 5538] #HLT_HT750
 #HLTPaths = [4457, 4458, 4459, 4893, 5703]       #HLT_PFHT750
 #HLTPaths = [4469, 4470, 4471, 5222, 5710, 5711] #HLT_PFJet320
@@ -154,7 +153,6 @@ process.BprimebHDevelopment = cms.EDAnalyzer('BprimeTobHDevelopment',
     ReportEvery         = cms.int32(options.reportEvery),  
     InputTTree          = cms.string('ntuple/tree'),
     InputFiles          = cms.vstring(FileNames),
-    MuHLTPaths            = cms.vint32(MuHLTPaths), 
     HLTPaths            = cms.vint32(HLTPaths), 
     DoPUReweighting	    = cms.bool(options.doPUReweighting),
     File_PUDistMC	      = cms.string('pileup_Data_Summer12_53X_S10.root'),
